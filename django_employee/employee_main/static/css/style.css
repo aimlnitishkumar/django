@@ -1,0 +1,60 @@
+
+        /* General page styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Table container and base styling */
+        table {
+            width: 100%;
+            max-width: 1000px;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden; /* Ensures the border-radius applies to corners */
+        }
+
+        /* Header styling */
+        thead {
+            background-color: #2c3e50;
+            color: #ffffff;
+        }
+
+        th {
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        /* Cell styling */
+        th, td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Alternating row colors for readability */
+        tbody tr:nth-child(even) {
+            background-color: #f9fbfc;
+        }
+
+        /* Hover effect on rows */
+        tbody tr:hover {
+            background-color: #f1f5f9;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        /* Remove border from the last row */
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+    

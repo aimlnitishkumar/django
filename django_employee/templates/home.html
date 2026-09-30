@@ -1,0 +1,66 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Employee Directory</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+</head>
+<body>
+    {% if not user.is_authenticated %}
+        <a href="{% url 'login' %}"> Login</a> &emsp;
+        <a href="{% url 'register' %}">Register</a>
+    {% else %}
+    You are logged in as: {{ user }}
+    <a href="{% url 'logout' %}">Logout</a>
+    {% endif %}
+
+
+    <h2>Employee Record - ShryWave</h2>
+    <a href="{% url 'add_employee' %}" style="float: right; margin-right: 200px;">Add Employee</a>
+    <br><br>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Designation</th>
+                <th>Salary</th>
+                <th>Manager</th>
+                <th>Department</th>
+                <th>Active</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for emp in employees %}
+                <tr>
+                    <td>{{emp.id}}</td>
+                    <td>{{emp.full_name}}</td>
+                    <td>{{emp.email}}</td>
+                    <td>{{emp.designation}}</td>
+                    <td>{{emp.salary}}</td>
+                    <td>{{emp.manager}}</td>
+                    <td>{{emp.department}}</td>
+                    <td>{{emp.is_active}}</td>
+                    <td>
+                        <div>
+                            <a href="{% url 'employee_detail' emp.id %}"><i class="fa fa-eye"></i></a>
+                            <a href=""><i class="fa fa-edit"></i></a>
+                            <a href=""><i class="fa fa-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,3 +1,3 @@
 # Django 
 
-Learing takes time to Process.
+Learning takes time to Process.
